@@ -1,0 +1,22 @@
+.main-header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-inline: var(--marginHeader);
+}
+
+.main-header > .logo {
+  font-size: 2.8em;
+}
+
+.search {
+  align-self: center;
+}
+
+.search > input {
+  font-size: 1.125em;
+}
+
+.search > button {
+  font-size: 1.125em;
+}

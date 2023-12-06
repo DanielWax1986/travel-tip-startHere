@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- CSS -->
+     <link rel="stylesheet" href="css/styles.css" />
+    
     <title>TravelTip</title>
 </head>
 <body>
-    <h1>TravelTip Starter</h1>
+    <header class="main-header">
+        <h1 class="logo">TravelTip</h1>
+        <div class="search">
+            <input type="text" placeholder="Enter Location">
+            <button onclick="onGoLocation">GO</button>
+            <button onclick="onDeleteLocation">Delete</button>
+            <button>My Location</button>
+        </div>
+    </header>
 
     <div id="map" style="width: 100%; height: 400px;"></div>
     
@@ -20,7 +31,7 @@
         <pre class="locs"></pre>
     </p>
 
-    <p>iris</p>
+   
     
 
     <script type="module" src="js/app.controller.js"></script>
