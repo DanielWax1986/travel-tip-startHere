@@ -6,6 +6,7 @@ window.onAddMarker = onAddMarker;
 window.onPanTo = onPanTo;
 window.onGetLocs = onGetLocs;
 window.onGetUserPos = onGetUserPos;
+window.onSearchLocation = onSearchLocation;
 
 function onInit() {
   mapService
@@ -24,9 +25,9 @@ function getPosition() {
   });
 }
 
-function onAddMarker() {
+function onAddMarker(lat = 32.0749831, lng = 34.9120554) {
   console.log("Adding a marker");
-  mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 });
+  mapService.addMarker({ lat, lng });
 }
 
 function onGetLocs() {
@@ -43,6 +44,7 @@ function onGetUserPos() {
         ".user-pos"
       ).innerText = `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`;
       onPanTo(pos.coords.latitude, pos.coords.longitude);
+      onAddMarker(pos.coords.latitude, pos.coords.longitude);
     })
     .catch((err) => {
       console.log("err!!!", err);
@@ -51,4 +53,19 @@ function onGetUserPos() {
 function onPanTo(lat, lng) {
   console.log("Panning the Map");
   mapService.panTo(lat, lng);
+}
+
+function onSearchLocation() {
+  const locationName = document.getElementById("location-input").value;
+  if (locationName === "") return;
+  mapService
+    .searchLocation(locationName)
+    .then((pos) => {
+      console.log(pos);
+      onPanTo(pos.coords.latitude, pos.coords.longitude);
+      onAddMarker(pos.coords.latitude, pos.coords.longitude);
+    })
+    .catch((err) => {
+      console.log("err!!!", err);
+    });
 }

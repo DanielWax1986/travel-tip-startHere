@@ -12,9 +12,9 @@
     <header class="main-header">
         <h1 class="logo">TravelTip</h1>
         <div class="search">
-            <input type="text" placeholder="Enter Location">
-            <button onclick="onGoLocation">GO</button>
-            <button onclick="onDeleteLocation">Delete</button>
+            <input id="location-input" type="text" placeholder="Enter Location">
+            <button onclick="onSearchLocation()">GO</button>
+            <button onclick="onDeleteLocation()">Delete</button>
             <button onclick="onGetUserPos()" class="btn-user-pos">My Location</button>
         </div>
     </header>
@@ -24,7 +24,7 @@
     <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
     <!-- <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button> -->
     <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
-    <button onclick="onPanTo()"class="btn-pan">Pan Map to Tokyo</button>
+    <!-- <button onclick="onPanTo()"class="btn-pan">Pan Map to Tokyo</button> -->
 
     <p>You are at: <span class="user-pos"></span></p>
     <p>Locations: 
